@@ -83,6 +83,8 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.mfa",
     "allauth.socialaccount",
+    # added:
+    "corsheaders",
 ]
 
 LOCAL_APPS = [
@@ -145,6 +147,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    # added:
+    "corsheaders.moddelware.CorsMiddleware",
 ]
 
 # STATIC

@@ -41,7 +41,7 @@ class NoteSerializer(serializers.ModelSerializer):
             "category_ids",
         ]
 
-    def create(self, instance, validated_data):
+    def create(self, validated_data):
         category_ids = validated_data.pop("category_ids", [])
         note = Note.objects.create(**validated_data)
         note.category.set(category_ids)

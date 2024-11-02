@@ -20,7 +20,11 @@ class Note(models.Model):
         blank=True,
         related_name="collaborator_notes",
     )
-    color = models.CharField(max_length=7, blank=True)  # HEX COLOR
+    color = models.CharField(
+        max_length=7,
+        blank=True,
+        default="",
+    )  # HEX COLOR
     category = models.ManyToManyField("Category", blank=True)
 
     def __str__(self):
