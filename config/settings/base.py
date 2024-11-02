@@ -89,8 +89,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "django_noteapp.users",
-    "django_noteapp.notes",
     # Your stuff: custom apps go here
+    "django_noteapp.notes",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -148,7 +148,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     # added:
-    "corsheaders.moddelware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 # STATIC
