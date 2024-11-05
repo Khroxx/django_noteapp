@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "django_noteapp"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

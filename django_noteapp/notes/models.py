@@ -3,6 +3,13 @@ from django.db import models
 from django_noteapp.users.models import User
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Note(models.Model):
     # Core Fields
     title = models.CharField(max_length=255, blank=False, null=False)
@@ -25,14 +32,7 @@ class Note(models.Model):
         blank=True,
         default="",
     )  # HEX COLOR
-    category = models.ManyToManyField("Category", blank=True)
+    category = models.ManyToManyField(Category, blank=True)
 
     def __str__(self):
         return self.title
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-
-    def __str__(self):
-        return self.name

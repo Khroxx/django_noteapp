@@ -12,8 +12,12 @@ class NoteView(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def create(self, serializer):
-        serializer.save(author=self.request.user)
+    def perform_create(self, serializer):
+        note = serializer.save(author=self.request.user)
+        collaborators = self.request.data.get("collaborators", [])
+        categories = self.request.data.get("category_ids", [])
+        note.collaborators.set(collaborators)
+        note.category.set(categories)
 
 
 class CategoryView(viewsets.ModelViewSet):

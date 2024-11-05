@@ -40,11 +40,17 @@ class NoteSerializer(serializers.ModelSerializer):
             "category",
             "category_ids",
         ]
+        extra_kwargs = {
+            "collaborators": {"required": False},
+            "categories": {"required": False},
+        }
 
     def create(self, validated_data):
         category_ids = validated_data.pop("category_ids", [])
+        collaborators = validated_data.pop("collaborators", [])
         note = Note.objects.create(**validated_data)
         note.category.set(category_ids)
+        note.collaborators.set(collaborators)
         return note
 
     def update(self, instance, validated_data):

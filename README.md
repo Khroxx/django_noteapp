@@ -1,17 +1,43 @@
-# django-noteapp
-
-basic note app using django backend
+# NoteApp written with Cookiecutter Django Template
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 License: MIT
 
-## Settings
+## Set up localhost
 
-Moved to [settings](https://cookiecutter-django.readthedocs.io/en/latest/1-getting-started/settings.html).
+1. Clone repository:
+```bash
+git clone https://github.com/Khroxx/django_noteapp.git
+```
+2. cd django_noteapp/ and install environment
+```bash
+python3 -m venv venv
+```
+3. enter environment:
+- **Unix-like (Linux/maxOS)**:
+```bash
+source venv/bin/activate
+```
+- **Windows**:
+```bash
+.\venv\Scripts\activate
+```
+4. Install requirements:
+```bash
+pip install -r requirements/base.txt
+pip install -r requirements/loxal.txt
+```
+5. Create postgres database (and user if you dont already have one)
+```bash
+createdb --username=postgres django_noteapp
+```
+- if you don't have a postgres user (installed postgresql recently)
+```bash
 
-## Basic Commands
+```
+
 
 ### Setting Up Your Users
 
@@ -41,10 +67,6 @@ To run the tests, check your test coverage, and generate an HTML coverage report
 
     $ pytest
 
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally.html#using-webpack-or-gulp).
-
 ### Email Server
 
 In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use [Mailpit](https://github.com/axllent/mailpit) when generating the project a local SMTP server with a web interface will be available.
@@ -64,7 +86,3 @@ In development, it is often nice to be able to see emails that are being sent fr
 5.  Check out <http://127.0.0.1:8025/> to see how it goes.
 
 Now you have your own mail server running locally, ready to receive whatever you send it.
-
-## Deployment
-
-The following details how to deploy this application.
